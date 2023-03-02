@@ -1,9 +1,11 @@
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -22,12 +24,7 @@ public class Main {
         List<WebElement> elements = driver.findElements(By.cssSelector("a h3"));
         elements.get(0).click();
 
-        if(driver.getTitle().contains("Selenium")){
-            System.out.println("Page title contains expected text.");
-        }
-        else {
-            System.out.println("Page title doesn't contain expected text.");
-        }
+        Assert.assertEquals(driver.getTitle().contains("Selenium"), true);
 
         driver.quit();
     }
