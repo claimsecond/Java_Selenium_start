@@ -21,5 +21,14 @@ public class Main {
 
         List<WebElement> elements = driver.findElements(By.cssSelector("a h3"));
         elements.get(0).click();
+
+        if(driver.getTitle().contains("Selenium")){
+            System.out.println("Page title contains expected text.");
+        }
+        else {
+            System.out.println("Page title doesn't contain expected text.");
+        }
+
+        driver.quit();
     }
 }
